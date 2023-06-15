@@ -22,11 +22,11 @@ int main(int argc, char *argv[]) {
     float **Gx = get_Gx();
     float **Gy = get_Gy();
 
-    sprintf(gray_image_filename, "./output_images/sobel/%s_gray_%.0f.raw", filename, threshold);
-    sprintf(image_Gx_filename, "./output_images/sobel/%s_Gx_%.0f.raw", filename, threshold);
-    sprintf(image_Gy_filename, "./output_images/sobel/%s_Gy_%.0f.raw", filename, threshold);
-    sprintf(image_grad_mag_filename, "./output_images/sobel/%s_grad_mag_map_%.0f.raw", filename, threshold);
-    sprintf(edge_map_filename, "./output_images/sobel/%s_edge_map_%.0f.raw", filename, threshold);
+    sprintf(gray_image_filename, "./output_images/%s_gray_%.0f.raw", filename, threshold);
+    sprintf(image_Gx_filename, "./output_images/%s_Gx_%.0f.raw", filename, threshold);
+    sprintf(image_Gy_filename, "./output_images/%s_Gy_%.0f.raw", filename, threshold);
+    sprintf(image_grad_mag_filename, "./output_images/%s_grad_mag_map_%.0f.raw", filename, threshold);
+    sprintf(edge_map_filename, "./output_images/%s_edge_map_%.0f.raw", filename, threshold);
 
     Image *rgb_image_ptr = read_image(input_filename, rows, cols, color);
 
