@@ -13,7 +13,7 @@ int main(int argc, char *argv[]){
 
     char *filename = get_image_filename(input_filename);
     char random_threshold_filename[50];
-    sprintf(random_threshold_filename, "./output_images/%s.raw", filename);
+    sprintf(random_threshold_filename, "./output_images/%s_random.raw", filename);
 
     Image *image_ptr = read_image(input_filename, rows, cols, color);
 
