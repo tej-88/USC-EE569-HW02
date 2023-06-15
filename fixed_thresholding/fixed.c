@@ -23,6 +23,25 @@ char *get_image_filename(char *full_path){
     return filename;
 }
 
+Image *read_image(char *filename, int rows, int cols, colors color) {
+    Image *image_ptr = create_image(rows, cols, color);
+
+    FILE *fptr = fopen(filename, "r");
+    if (fptr == NULL){
+        printf("%s could not be opened.\n", filename);
+        exit(1);
+    }
+
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            fread((image_ptr->image)[i][j], sizeof(byte), color, fptr);
+        }
+    }
+
+    fclose(fptr);
+    return image_ptr;
+}
+
 Image *fixed_thresholding(Image *image_ptr, byte threshold){
     int rows = image_ptr->rows;
     int cols = image_ptr->cols;

@@ -23,6 +23,8 @@ typedef struct Image
 
 char *get_image_filename(char *full_path);
 
+Image *read_image(char *filename, int rows, int cols, colors color);
+
 Image *fixed_thresholding(Image *image_ptr, byte threshold);
 
 #endif
