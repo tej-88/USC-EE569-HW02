@@ -33,6 +33,8 @@ Image *image_convolution(Image *image_ptr, float **kernel, int kernel_size);
 
 void write_image(char *filename, Image *image_ptr);
 
+Image *create_image(int rows, int cols, colors color);
+
 void delete_image(Image *image_ptr);
 
 float **create_float_matrix(int rows, int cols);
@@ -40,6 +42,12 @@ float **create_float_matrix(int rows, int cols);
 void delete_float_matrix(int rows, int cols, float **matrix);
 
 byte float_to_byte(float value);
+
+unsigned int **get_histogram(Image *image_ptr);
+
+float **get_PDF(Image *image_ptr);
+
+float **get_CDF(Image *image_ptr);
 
 float **get_Gx(void);
 
@@ -52,3 +60,5 @@ Image *image_normalization(Image *image_ptr);
 Image *create_gradient_magnitude_map(Image *image_Gx_ptr, Image *image_Gy_ptr);
 
 Image *create_edge_map(Image *image_ptr, float threshold);
+
+#endif

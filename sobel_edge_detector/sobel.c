@@ -142,6 +142,24 @@ void write_image(char *filename, Image *image_ptr) {
     return;
 }
 
+Image *create_image(int rows, int cols, colors color) {
+    Image *image_ptr = (Image *)malloc(sizeof(Image));
+
+    image_ptr->rows = rows;
+    image_ptr->cols = cols;
+    image_ptr->color = color;
+
+    image_ptr->image = (byte ***)malloc(sizeof(byte **) * rows);
+    for (int i = 0; i < rows; i++) {
+        (image_ptr->image)[i] = (byte **)malloc(sizeof(byte *) * cols);
+        for (int j = 0; j < cols; j++) {
+            (image_ptr->image)[i][j] = (byte *)malloc(sizeof(byte) * color);
+        }
+    }
+
+    return image_ptr;
+}
+
 void delete_image(Image *image_ptr) {
     int rows = image_ptr->rows;
     int cols = image_ptr->cols;
@@ -175,6 +193,77 @@ void delete_float_matrix(int rows, int cols, float **matrix) {
 
     free(matrix);
     return;
+}
+
+unsigned int **get_histogram(Image *image_ptr){
+    int rows = image_ptr->rows;
+    int cols = image_ptr->cols;
+    colors color = image_ptr->color;
+
+    unsigned int **histogram = (unsigned int **)malloc((MAX_INTENSITY + 1) * sizeof(unsigned int*));
+    for (int i = 0; i <= MAX_INTENSITY; i++) {
+        histogram[i] = (unsigned int*)malloc(sizeof(unsigned int) * color);
+    }
+
+    for (int i = 0; i <= MAX_INTENSITY; i++){
+        for (int j = 0; j < color; j++) {
+            histogram[i][j] = 0;
+        }
+    }
+
+    for (int a = 0; a < rows; a++){
+        for (int b = 0; b < cols; b++){
+            for (int c = 0; c < color; c++) {
+                histogram[(image_ptr->image)[a][b][c]][c]++;
+            }
+        }
+    }
+
+    return histogram;
+}
+
+float **get_PDF(Image *image_ptr){
+    int rows = image_ptr->rows;
+    int cols = image_ptr->cols;
+    colors color = image_ptr->color;
+
+    unsigned int **histogram = get_histogram(image_ptr);
+
+    float **PDF = create_float_matrix(MAX_INTENSITY + 1, color);
+    
+    for (int i = 0; i <= MAX_INTENSITY; i++){
+        for (int j = 0; j < color; j++) {
+            PDF[i][j] = histogram[i][j] / (float) (rows * cols);
+        }
+    }
+
+    for (int a = 0; a <= MAX_INTENSITY; a++) {
+        free(histogram[a]);
+    }
+    free(histogram);
+
+    return PDF;
+}
+
+float **get_CDF(Image *image_ptr){
+    colors color = image_ptr->color;
+
+    float **PDF = get_PDF(image_ptr);
+    float **CDF = create_float_matrix(MAX_INTENSITY + 1, color);
+    
+    for (int i = 0; i < color; i++){
+        CDF[0][i] = PDF[0][i];
+    }
+
+    for (int i = 1; i <= MAX_INTENSITY; i++){
+        for (int j = 0; j < color; j++) {
+            CDF[i][j] = PDF[i][j] + CDF[i - 1][j];
+        }
+    }
+
+    delete_float_matrix(MAX_INTENSITY + 1, color, PDF);
+
+    return CDF;
 }
 
 byte float_to_byte(float value) {
