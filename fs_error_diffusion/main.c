@@ -13,7 +13,7 @@ int main(int argc, char *argv[]){
 
     char *filename = get_image_filename(input_filename);
     char fs_filename[50];
-    sprintf(fs_filename, "./output_images/%s.raw", filename);
+    sprintf(fs_filename, "./output_images/%s_fs.raw", filename);
 
     Image *image_ptr = read_image(input_filename, rows, cols, color);
 
