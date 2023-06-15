@@ -98,6 +98,18 @@ Image *create_image(int rows, int cols, colors color) {
     return image_ptr;
 }
 
+byte float_to_byte(float value) {
+    if (value >= MAX_INTENSITY) {
+        return MAX_INTENSITY;
+    }
+    else if (value <= MIN_INTENSITY) {
+        return MIN_INTENSITY;
+    }
+    else {
+        return round(value);
+    }
+}
+
 Image *fixed_thresholding(Image *image_ptr, byte threshold){
     int rows = image_ptr->rows;
     int cols = image_ptr->cols;

@@ -31,6 +31,8 @@ void delete_image(Image *image_ptr);
 
 Image *create_image(int rows, int cols, colors color);
 
+byte float_to_byte(float value);
+
 Image *fixed_thresholding(Image *image_ptr, byte threshold);
 
 #endif
