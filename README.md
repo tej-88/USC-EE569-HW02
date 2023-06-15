@@ -17,7 +17,7 @@ cd sobel_edge_detector
 make sobel
 ```  
 
-To Run(for e.g. on ./sobel/input_images/elephant.raw with 80 threshold):  
+To Run(for e.g. on ./sobel_edge_detector/input_images/elephant.raw with 80 threshold):  
 ```
 cd sobel_edge_detector
 ./sobel input_images/elephant.raw 321 481 3 80
