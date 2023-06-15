@@ -1,5 +1,27 @@
 #include "./fixed.h"
 
+char *get_image_filename(char *full_path){
+    int backslash_idx = 0;
+    int period_idx = 0;
+
+    for (int i = strlen(full_path); i >= 0; i--){
+        if (full_path[i] == '.'){
+            period_idx = i;
+        }
+        else if (full_path[i] == '/'){
+            backslash_idx = i;
+            break;
+        }
+    }
+    int file_len = (period_idx - backslash_idx);
+
+    char *filename = (char *)malloc(sizeof(char) * file_len);
+    for (int i = 0; i < file_len - 1; i++){
+        filename[i] = full_path[backslash_idx + 1 + i];
+    }
+    filename[file_len - 1] = '\0';
+    return filename;
+}
 
 Image *fixed_thresholding(Image *image_ptr, byte threshold){
     int rows = image_ptr->rows;

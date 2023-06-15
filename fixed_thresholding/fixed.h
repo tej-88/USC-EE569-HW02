@@ -21,6 +21,7 @@ typedef struct Image
     byte ***image;
 }Image;
 
+char *get_image_filename(char *full_path);
 
 Image *fixed_thresholding(Image *image_ptr, byte threshold);
 
