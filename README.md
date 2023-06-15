@@ -62,4 +62,18 @@ To Run(for e.g. on ./dithering_matrix/input_images/bridge.raw with a dithering m
 ```
 cd dithering_matrix
 ./dither input_images/bridge.raw 501 332 1 2  
+```  
+
+### Error Diffusion
+#### Floyd Steinberg Error Diffusion
+To Build:  
+```
+cd fs_error_diffusion  
+make fs  
+```  
+
+To Run(for e.g. on ./fs_error_diffusion/input_images/bridge.raw):  
+```
+cd fs_error_diffusion
+./fs input_images/bridge.raw 501 332 1  
 ```

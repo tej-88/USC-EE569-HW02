@@ -2,7 +2,7 @@
 
 int main(int argc, char *argv[]){
     if (argc != 5){
-        printf("[Usage]: ./floyd_steinberg input_filename rows cols color \n");
+        printf("[Usage]: ./fs input_filename rows cols color \n");
         exit(1);
     }
 
