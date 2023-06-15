@@ -35,5 +35,17 @@ make fixed
 To Run(for e.g. on ./fixed_thresholding/input_images/bridge.raw with 80 threshold):  
 ```
 cd fixed_thresholding
-./fixed input_images/bridge.raw 501 332 1 80
+./fixed input_images/bridge.raw 501 332 1 80  
+```  
+
+### Random Thresholding
+To Build:  
 ```
+cd random_thresholding
+make random  
+```  
+
+To Run(for e.g. on ./random_thresholding/input_images/bridge.raw):  
+```
+cd random_thresholding
+./random input_images/bridge.raw 501 332 1
