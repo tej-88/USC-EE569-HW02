@@ -29,6 +29,8 @@ void write_image(char *filename, Image *image_ptr);
 
 void delete_image(Image *image_ptr);
 
+Image *create_image(int rows, int cols, colors color);
+
 Image *fixed_thresholding(Image *image_ptr, byte threshold);
 
 #endif

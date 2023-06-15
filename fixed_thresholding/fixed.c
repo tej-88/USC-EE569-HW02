@@ -80,6 +80,24 @@ void delete_image(Image *image_ptr) {
     return;
 }
 
+Image *create_image(int rows, int cols, colors color) {
+    Image *image_ptr = (Image *)malloc(sizeof(Image));
+
+    image_ptr->rows = rows;
+    image_ptr->cols = cols;
+    image_ptr->color = color;
+
+    image_ptr->image = (byte ***)malloc(sizeof(byte **) * rows);
+    for (int i = 0; i < rows; i++) {
+        (image_ptr->image)[i] = (byte **)malloc(sizeof(byte *) * cols);
+        for (int j = 0; j < cols; j++) {
+            (image_ptr->image)[i][j] = (byte *)malloc(sizeof(byte) * color);
+        }
+    }
+
+    return image_ptr;
+}
+
 Image *fixed_thresholding(Image *image_ptr, byte threshold){
     int rows = image_ptr->rows;
     int cols = image_ptr->cols;
