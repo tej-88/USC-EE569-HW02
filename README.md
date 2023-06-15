@@ -22,3 +22,18 @@ To Run(for e.g. on ./sobel_edge_detector/input_images/elephant.raw with 80 thres
 cd sobel_edge_detector
 ./sobel input_images/elephant.raw 321 481 3 80
 ```
+
+## Digital Half-toning  
+
+### Fixed Thresholding
+To Build:  
+```
+cd fixed_thresholding
+make sobel
+```  
+
+To Run(for e.g. on ./fixed_thresholding/input_images/bridge.raw with 80 threshold):  
+```
+cd fixed_thresholding
+./fixed input_images/bridge.raw 501 332 1 80
+```
