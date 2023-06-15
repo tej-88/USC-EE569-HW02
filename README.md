@@ -48,4 +48,18 @@ make random
 To Run(for e.g. on ./random_thresholding/input_images/bridge.raw):  
 ```
 cd random_thresholding
-./random input_images/bridge.raw 501 332 1
+./random input_images/bridge.raw 501 332 1  
+```
+
+#### Dithering Matrix
+To Build:  
+```
+cd dithering_matrix  
+make dither  
+```  
+
+To Run(for e.g. on ./dithering_matrix/input_images/bridge.raw with a dithering matrix of dimension 2):  
+```
+cd dithering_matrix
+./dither input_images/bridge.raw 501 332 1 2  
+```
