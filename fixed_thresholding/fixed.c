@@ -42,6 +42,44 @@ Image *read_image(char *filename, int rows, int cols, colors color) {
     return image_ptr;
 }
 
+void write_image(char *filename, Image *image_ptr) {
+    int rows = image_ptr->rows;
+    int cols = image_ptr->cols;
+    colors color = image_ptr->color;
+
+    FILE *fptr = fopen(filename, "w");
+    if (fptr == NULL){
+        printf("%s could not be opened.\n", filename);
+        exit(1);
+    }
+
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            fwrite((image_ptr->image)[i][j], sizeof(byte), color, fptr);
+        }
+    }
+
+    fclose(fptr);
+    return;
+}
+
+void delete_image(Image *image_ptr) {
+    int rows = image_ptr->rows;
+    int cols = image_ptr->cols;
+    colors color = image_ptr->color;
+
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            free((image_ptr->image)[i][j]);
+        }
+        free((image_ptr->image)[i]);
+    }
+    free(image_ptr->image);
+
+    free(image_ptr);
+    return;
+}
+
 Image *fixed_thresholding(Image *image_ptr, byte threshold){
     int rows = image_ptr->rows;
     int cols = image_ptr->cols;
