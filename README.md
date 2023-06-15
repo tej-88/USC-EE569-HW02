@@ -29,7 +29,7 @@ cd sobel_edge_detector
 To Build:  
 ```
 cd fixed_thresholding
-make sobel
+make fixed  
 ```  
 
 To Run(for e.g. on ./fixed_thresholding/input_images/bridge.raw with 80 threshold):  
