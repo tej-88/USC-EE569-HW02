@@ -81,6 +81,23 @@ Image *create_image(int rows, int cols, colors color) {
     return image_ptr;
 }
 
+void delete_image(Image *image_ptr) {
+    int rows = image_ptr->rows;
+    int cols = image_ptr->cols;
+    colors color = image_ptr->color;
+
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            free((image_ptr->image)[i][j]);
+        }
+        free((image_ptr->image)[i]);
+    }
+    free(image_ptr->image);
+
+    free(image_ptr);
+    return;
+}
+
 Image *image_padding(Image *image_ptr, int kernel_size){
     int original_rows = image_ptr->rows;
     int original_cols = image_ptr->cols;
@@ -151,6 +168,24 @@ float **get_mirror_kernel(float **kernel, int kernel_size){
     }
 
     return mirror_kernel;
+}
+
+float **create_float_matrix(int rows, int cols) {
+    float **matrix = (float **)malloc(sizeof(float *) * rows);
+    for (int i = 0; i < rows; i++) {
+        matrix[i] = (float *)malloc(sizeof(float) * cols);
+    }
+
+    return matrix;
+}
+
+void delete_float_matrix(int rows, int cols, float **matrix) {
+    for (int i = 0; i < rows; i++) {
+        free(matrix[i]);
+    }
+
+    free(matrix);
+    return;
 }
 
 Image *serpentine_error_diffusion(Image *image_ptr, float **kernel, int kernel_size) {
@@ -227,6 +262,31 @@ Image *serpentine_error_diffusion(Image *image_ptr, float **kernel, int kernel_s
     delete_image(binary_image_ptr);
 
     return halftoned_image_ptr;
+}
+
+float ***create_float_image(int rows, int cols, colors color) {
+    float ***image = (float ***)malloc(sizeof(float **) * rows);
+
+    for (int i = 0; i < rows; i++) {
+        image[i] = (float **)malloc(sizeof(float *) * cols);
+        for (int j = 0; j < cols; j++) {
+            image[i][j] = (float *)malloc(sizeof(float) * color);
+        }
+    }
+
+    return image;
+}
+
+void delete_float_image(float ***image, int rows, int cols, colors color) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            free(image[i][j]);
+        }
+        free(image[i]);
+    }
+    free(image);
+
+    return;
 }
 
 float **get_fs_kernel(void){
