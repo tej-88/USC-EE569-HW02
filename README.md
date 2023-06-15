@@ -24,8 +24,8 @@ cd sobel_edge_detector
 ```
 
 ## Digital Half-toning  
-
-### Fixed Thresholding
+### Dithering  
+#### Fixed Thresholding
 To Build:  
 ```
 cd fixed_thresholding
@@ -38,7 +38,7 @@ cd fixed_thresholding
 ./fixed input_images/bridge.raw 501 332 1 80  
 ```  
 
-### Random Thresholding
+#### Random Thresholding
 To Build:  
 ```
 cd random_thresholding
