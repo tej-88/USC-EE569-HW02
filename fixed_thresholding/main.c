@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
 
     char *filename = get_image_filename(input_filename);
     char fixed_threshold_filename[50];
-    sprintf(fixed_threshold_filename, "./output_images/fixed/%s_%.0f.raw", filename, threshold);
+    sprintf(fixed_threshold_filename, "./output_images/%s_%.0f.raw", filename, threshold);
 
     Image *image_ptr = read_image(input_filename, rows, cols, color);
 
