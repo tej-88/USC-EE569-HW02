@@ -90,3 +90,16 @@ To Run(for e.g. on ./jjn_error_diffusion/input_images/bridge.raw):
 cd jjn_error_diffusion
 ./jjn input_images/bridge.raw 501 332 1  
 ```
+
+#### Stucki Error Diffusion
+To Build:  
+```
+cd stucki_error_diffusion  
+make stucki  
+```  
+
+To Run(for e.g. on ./stucki_error_diffusion/input_images/bridge.raw):  
+```
+cd stucki_error_diffusion
+./stucki input_images/bridge.raw 501 332 1  
+```
