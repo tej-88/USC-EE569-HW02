@@ -77,3 +77,16 @@ To Run(for e.g. on ./fs_error_diffusion/input_images/bridge.raw):
 cd fs_error_diffusion
 ./fs input_images/bridge.raw 501 332 1  
 ```
+
+#### Jarvis, Judice and Ninke Error Diffusion
+To Build:  
+```
+cd jjn_error_diffusion  
+make jjn  
+```  
+
+To Run(for e.g. on ./jjn_error_diffusion/input_images/bridge.raw):  
+```
+cd jjn_error_diffusion
+./jjn input_images/bridge.raw 501 332 1  
+```
