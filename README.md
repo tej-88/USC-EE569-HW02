@@ -104,8 +104,8 @@ cd stucki_error_diffusion
 ./stucki input_images/bridge.raw 501 332 1  
 ```
 
-### Color Half-toning with Error Diffusion
-#### Separable Error Diffusion
+## Color Half-toning with Error Diffusion
+### Separable Error Diffusion
 To Build:  
 ```
 cd separable_error_diffusion  
@@ -118,7 +118,7 @@ cd separable_error_diffusion
 ./separable_error input_images/fish.raw 426 640 3  
 ```
 
-#### MBVQ-based Error diffusion
+### MBVQ-based Error diffusion
 To Build:  
 ```
 cd mbvq_error_diffusion  
