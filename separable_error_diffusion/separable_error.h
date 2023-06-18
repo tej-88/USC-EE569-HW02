@@ -54,7 +54,8 @@ Image *RGB2CMY(Image *rgb_image_ptr);
 
 Image *CMY2RGB(Image *cmy_image_ptr);
 
+char *get_MBVQ(byte *pixel);
+
+byte *get_closest_vertex(byte *pixel, char *MBVQ);
+
 #endif
-
-
-

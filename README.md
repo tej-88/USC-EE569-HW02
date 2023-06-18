@@ -112,8 +112,21 @@ cd separable_error_diffusion
 make separable_error  
 ```  
 
-To Run(for e.g. on ./separable_error_diffusion/input_images/bridge.raw):  
+To Run(for e.g. on ./separable_error_diffusion/input_images/fish.raw):  
 ```
 cd separable_error_diffusion
 ./separable_error input_images/fish.raw 426 640 3  
+```
+
+#### MBVQ-based Error diffusion
+To Build:  
+```
+cd mbvq_error_diffusion  
+make mbvq  
+```  
+
+To Run(for e.g. on ./mbvq_error_diffusion/input_images/fish.raw):  
+```
+cd mbvq_error_diffusion
+./mbvq input_images/fish.raw 426 640 3  
 ```
