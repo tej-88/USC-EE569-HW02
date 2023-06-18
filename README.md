@@ -103,3 +103,17 @@ To Run(for e.g. on ./stucki_error_diffusion/input_images/bridge.raw):
 cd stucki_error_diffusion
 ./stucki input_images/bridge.raw 501 332 1  
 ```
+
+### Color Half-toning with Error Diffusion
+#### Separable Error Diffusion
+To Build:  
+```
+cd separable_error_diffusion  
+make separable_error  
+```  
+
+To Run(for e.g. on ./separable_error_diffusion/input_images/bridge.raw):  
+```
+cd separable_error_diffusion
+./separable_error input_images/fish.raw 426 640 3  
+```
