@@ -51,5 +51,3 @@ void delete_float_image(float ***image, int rows, int cols, colors color);
 float **get_jjn_kernel(void);
 
 #endif
-
-
